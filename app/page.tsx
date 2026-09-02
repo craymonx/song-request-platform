@@ -34,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     fetch('/api/data?view=songs', { cache: 'no-store' })
       .then((response) => response.ok ? response.json() : Promise.reject())
-      .then((result: { songs: Song[] }) => setSongs(result.songs))
+      .then((result) => setSongs((result as { songs: Song[] }).songs))
       .catch(() => undefined);
   }, []);
 
@@ -146,7 +146,7 @@ export default function Home() {
             {!submitted ? (
               <form onSubmit={submitRequest} className="rounded-[1.75rem] bg-white p-5 text-[#2d1b26] shadow-2xl sm:p-7">
                 {customMode && <div className="mb-5 grid gap-4 sm:grid-cols-2"><div><label htmlFor="custom-title" className="mb-2 block text-sm font-bold">歌曲名稱 <span className="font-normal text-[#846f7b]">Song title *</span></label><Input id="custom-title" required value={customTitle} onChange={(event) => setCustomTitle(event.target.value)} maxLength={100} className="h-12 rounded-xl border-[#e6d7df]" /></div><div><label htmlFor="custom-artist" className="mb-2 block text-sm font-bold">歌手 <span className="font-normal text-[#846f7b]">Artist</span></label><Input id="custom-artist" value={customArtist} onChange={(event) => setCustomArtist(event.target.value)} maxLength={100} className="h-12 rounded-xl border-[#e6d7df]" /></div></div>}
-                <div><label htmlFor="nickname" className="mb-2 block text-sm font-bold">你的名字 <span className="font-normal text-[#846f7b]">Nickname *</span></label><Input id="nickname" required value={nickname} onChange={(event) => setNickname(event.target.value)} maxLength={30} placeholder="例如 Example: Raymond" className="h-12 rounded-xl border-[#e6d7df]" /></div>
+                <div><label htmlFor="nickname" className="mb-2 block text-sm font-bold">你的名字 <span className="font-normal text-[#846f7b]">Nickname *</span></label><Input id="nickname" required value={nickname} onChange={(event) => setNickname(event.target.value)} maxLength={30} placeholder="例如 Example: 陳大文 David Chan" className="h-12 rounded-xl border-[#e6d7df]" /></div>
                 <div className="mt-5"><div className="mb-2 flex items-end justify-between gap-3"><label htmlFor="message" className="text-sm font-bold">留言 <span className="font-normal text-[#846f7b]">Message (optional)</span></label><span className="text-xs text-[#9a8591]">{message.length}/300</span></div><Textarea id="message" value={message} onChange={(event) => setMessage(event.target.value)} maxLength={300} rows={4} placeholder="想同表演者講些咩？ / Add a note for the performer" className="min-h-28 resize-none rounded-xl border-[#e6d7df]" /></div>
                 {requestError && <p role="alert" className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">{requestError}</p>}
                 <Button type="submit" disabled={submitting} className="mt-6 h-13 w-full rounded-xl bg-[#d63286] text-base hover:bg-[#bb2873]"><Send /> {submitting ? '送出中…' : '送出點唱'} <span className="font-normal opacity-80">{submitting ? 'Submitting…' : 'Submit request'}</span></Button>
