@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cantomooncouver-song-requests",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "dist/client"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cantomooncouver-song-requests",
+      "database_id": "73b63e70-a8bd-4885-90ac-e1137bf62c70",
+      "migrations_dir": "drizzle"
+    }
+  ]
+}

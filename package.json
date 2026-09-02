@@ -8,6 +8,9 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "cloudflare:prepare": "node scripts/prepare-cloudflare.mjs",
+    "deploy:cloudflare": "npm run cloudflare:prepare && wrangler deploy --config dist/server/wrangler.json",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote --config wrangler.jsonc",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
     "format": "oxfmt",

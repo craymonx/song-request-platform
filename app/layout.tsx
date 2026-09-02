@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cantomooncouver-requests.craymonx.chatgpt.site'),
+  metadataBase: new URL('https://cantomooncouver-song-requests.raymondchm8.workers.dev'),
   title: '歡樂滿歌華 | Cantomooncouver Song Requests',
   description: '現場點唱站 · Send a live song request to Cantomooncouver.',
   icons: { icon: '/cantomooncouver-logo.png' },
