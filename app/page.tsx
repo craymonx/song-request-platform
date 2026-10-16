@@ -10,12 +10,26 @@ import { Textarea } from '@/components/ui/textarea';
 type Song = { id: number; title: string; artist: string; language: string; category: string };
 
 const sampleSongs: Song[] = [
-  { id: 1, title: '海闊天空', artist: 'Beyond', language: '粵語', category: '經典' },
-  { id: 2, title: '喜歡你', artist: 'Beyond', language: '粵語', category: '經典' },
-  { id: 3, title: '富士山下', artist: '陳奕迅', language: '粵語', category: '慢歌' },
-  { id: 4, title: '越難越愛', artist: '吳若希', language: '粵語', category: '流行' },
-  { id: 5, title: '少女的祈禱', artist: '楊千嬅', language: '粵語', category: '經典' },
-  { id: 6, title: 'K歌之王', artist: '陳奕迅', language: '粵語', category: '流行' },
+  { id: 1, title: '蜚蜚', artist: '', language: '粵語', category: '' },
+  { id: 2, title: '不許你注定一人', artist: '', language: '粵語', category: '' },
+  { id: 3, title: '絕', artist: '', language: '粵語', category: '' },
+  { id: 4, title: '分手總約在雨天', artist: '', language: '粵語', category: '' },
+  { id: 5, title: '到此為止', artist: '', language: '粵語', category: '' },
+  { id: 6, title: '沙龍', artist: '', language: '粵語', category: '' },
+  { id: 7, title: '假使世界原來不像你預期', artist: '', language: '粵語', category: '' },
+  { id: 8, title: '追', artist: '', language: '粵語', category: '' },
+  { id: 9, title: '垃圾', artist: '', language: '粵語', category: '' },
+  { id: 10, title: '傾城', artist: '', language: '粵語', category: '' },
+  { id: 11, title: '不浪漫罪名', artist: '', language: '粵語', category: '' },
+  { id: 12, title: '誰明浪子心', artist: '', language: '粵語', category: '' },
+  { id: 13, title: '勿念', artist: '', language: '粵語', category: '' },
+  { id: 14, title: '錯誤的宇宙尋找愛', artist: '', language: '粵語', category: '' },
+  { id: 15, title: '木紋', artist: '', language: '粵語', category: '' },
+  { id: 16, title: '思覺失調', artist: '', language: '粵語', category: '' },
+  { id: 17, title: '在流浮山滴眼水', artist: '', language: '粵語', category: '' },
+  { id: 18, title: '勞斯萊斯', artist: '', language: '粵語', category: '' },
+  { id: 19, title: '東京人壽', artist: '', language: '粵語', category: '' },
+  { id: 20, title: '山林道', artist: '', language: '粵語', category: '' },
 ];
 
 export default function Home() {
@@ -131,7 +145,7 @@ export default function Home() {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filteredSongs.map((song) => (
             <button key={song.id} type="button" onClick={() => openSong(song)} className="group flex min-h-28 items-center justify-between rounded-[1.35rem] border border-[#eadde4] bg-white/75 p-5 text-left shadow-[0_8px_24px_rgba(68,25,49,.04)] transition hover:-translate-y-0.5 hover:border-[#d993b9] hover:bg-white hover:shadow-[0_16px_35px_rgba(117,35,82,.1)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#d63286]/25">
-              <span><span className="block text-xl font-black tracking-tight text-[#2e1726]">{song.title}</span><span className="mt-1 block text-sm text-[#816b78]">{song.artist}</span><span className="mt-3 inline-flex rounded-full bg-[#f8edf3] px-2.5 py-1 text-[11px] font-semibold text-[#8b3c69]">{song.category}</span></span>
+              <span><span className="block text-xl font-black tracking-tight text-[#2e1726]">{song.title}</span>{song.artist && <span className="mt-1 block text-sm text-[#816b78]">{song.artist}</span>}<span className="mt-3 inline-flex rounded-full bg-[#f8edf3] px-2.5 py-1 text-[11px] font-semibold text-[#8b3c69]">{song.category || song.language}</span></span>
               <span className="grid size-10 place-items-center rounded-full bg-[#f7e4ef] text-[#b72f76] transition group-hover:bg-[#d63286] group-hover:text-white"><ChevronRight className="size-5" /></span>
             </button>
           ))}
